@@ -40,5 +40,3 @@ def pronunciation_to_consonants(pronunciation):
 
 def pronunciation_to_numbers(pronunciation):
     return ''.join([consonant_to_number_map[c] for c in pronunciation_to_consonants(pronunciation)])
-
-print(pronunciation_to_numbers('ɡɹiːs'))

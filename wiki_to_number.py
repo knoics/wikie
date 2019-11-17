@@ -10,5 +10,5 @@ def wiktionary_to_number(file_path, max_count=None):
             break
 
 with open("./word_numbers.txt", "w") as text_file:
-    for count, word, pronunciation, numbers in wiktionary_to_number(r'./enwiktionary-latest-pages-articles.xml.bz2'):
+    for count, word, pronunciation, numbers in wiktionary_to_number(r'./enwiktionary-latest-pages-articles.xml.bz2', 1000):
         text_file.write("%s,%s,%s,%s\n" % (count, word, pronunciation, numbers))
