@@ -2,3 +2,4 @@ __pycache__/
 *.bz2
 *.txt
 .pytest_cache/
+.DS_Store
