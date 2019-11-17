@@ -14,6 +14,7 @@ consonant_to_number_map = {
     'ʃ' : '6',
     'k' : '7',
     'g' : '7',
+    'ɡ' : '7',
     'f' : '8',
     'v' : '8',
     'b' : '9',
@@ -40,3 +41,4 @@ def pronunciation_to_consonants(pronunciation):
 def pronunciation_to_numbers(pronunciation):
     return ''.join([consonant_to_number_map[c] for c in pronunciation_to_consonants(pronunciation)])
 
+print(pronunciation_to_numbers('ɡɹiːs'))
