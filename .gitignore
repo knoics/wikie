@@ -1,5 +1,7 @@
 __pycache__/
 *.bz2
 *.txt
+*.zip
 .pytest_cache/
 .DS_Store
+env/
