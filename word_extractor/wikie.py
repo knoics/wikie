@@ -44,7 +44,7 @@ def parse_words(file_path):
 #title_re = re.compile('<title>(?P<title>.+)</title>')
 wikilink_re = re.compile('{{.+}}')
 title_pattern = re.compile('<title>(?P<title>.+)</title>', re.DOTALL) 
-ipa_pattern_str = '{{IPA\|(?P<lang>.{2,10}?)\|(?P<ipa>.*?)}}' #Adding a ? on a quantifier (?, * or +) makes it non-greedy.
+ipa_pattern_str = '{{IPA\|(?P<lang>.{2,10}?)\|(?P<ipa>[^\<]*?)}}' #Adding a ? on a quantifier (?, * or +) makes it non-greedy.
 us_ipa_pattern = re.compile('{{a\|US}}.*?' + ipa_pattern_str, re.DOTALL) 
 ipa_pattern = re.compile(ipa_pattern_str, re.DOTALL) 
 file_pattern = re.compile('\[\[File:(?P<file>.*?)\|', re.DOTALL)
@@ -79,6 +79,7 @@ def parse_wiki_page(page):
                 line = wikilink_re.sub('', line)
                 line = re.sub('\[|\]|\'', '', line)
                 line = line.split('|')[0].strip()
+                line = line.replace('</text>', '')
             if line:
                 if 'pos' not in data:
                     data['pos'] = {}

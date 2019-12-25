@@ -1154,3 +1154,123 @@ From {{inh|nrf|fro|forn}}, from {{inh|nrf|la|furnus}}.
     }
     actual = parse_wiki_page(text) 
     assert actual == expected
+
+def test_taxéi():
+    text = """
+  <page>
+    <title>taxéi</title>
+    <ns>0</ns>
+    <id>7228433</id>
+    <revision>
+      <id>53068593</id>
+      <timestamp>2019-05-18T09:31:32Z</timestamp>
+      <contributor>
+        <username>GianWiki</username>
+        <id>581633</id>
+      </contributor>
+      <comment>Created page with &quot;==Ligurian==  ===Etymology=== From {{inh|lij|la|tacēre}}, present active infinitive of {{m|la|taceō}}, from {{inh|lij|itc-pro|*takēō}}.  ===Pronunciation=== * {{IPA|lij|/t...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">==Ligurian==
+
+===Etymology===
+From {{inh|lij|la|tacēre}}, present active infinitive of {{m|la|taceō}}, from {{inh|lij|itc-pro|*takēō}}.
+
+===Pronunciation===
+* {{IPA|lij|/taˈʒei/}}
+
+===Verb===
+{{head|lij|verb}}
+
+# {{lb|lij|intransitive}} to be [[silent]]
+# {{lb|lij|intransitive}} to [[keep quiet]]
+
+====Conjugation====
+{{lij-conj-2nd|tax|tâx|avéi}}</text>
+      <sha1>0l9yzlue2ytcndquf26cltwoim097in</sha1>
+    </revision>
+  </page>"""
+    expected = {
+        'title': 'taxéi', 
+        'ipa': '/taˈʒei/', 
+        'ms': '16', 
+        'ipa-lang': 'lij', 
+        'pos': {
+            'verb': ['to be silent', 'to keep quiet'], 
+        }
+    }
+    actual = parse_wiki_page(text) 
+    assert actual == expected  
+
+def test_encyclopedia():
+    text = """
+  <page>
+    <title>encyclopaedia</title>
+    <ns>0</ns>
+    <id>32</id>
+    <revision>
+      <id>54419951</id>
+      <parentid>53847961</parentid>
+      <timestamp>2019-09-29T15:05:17Z</timestamp>
+      <contributor>
+        <username>WingerBot</username>
+        <id>2024159</id>
+      </contributor>
+      <minor />
+      <comment>move lang= to 1= in {{IPA}} (2); move lang= to 1= in {{audio}}; move lang= to 1= in {{rhymes}}; move lang= to 1= in {{hyphenation}}; move lang= to 1= in {{alternative spelling of}}</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">{{also|encyclopædia}}
+==English==
+
+===Pronunciation===
+* {{a|Canada}} {{IPA|en|/ənˌsəɪ.kləˈpi.di.ə/}}
+* {{a|UK|US}} {{IPA|en|/ɪnˌsaɪ.kləˈpi(ː).di.ə/}}
+* {{audio|en|en-us-encyclopedia.ogg|Audio (US)}}
+* {{rhymes|en|iːdiə}}
+* {{hyphenation|en|en|cy|clo|pe|dia}}
+
+===Noun===
+{{en-noun|s|encyclopaediae}}
+
+# {{lb|en|chiefly|UK|Australia}} {{alternative spelling of|en|encyclopedia}}
+
+====Translations====
+{{trans-see|encyclopedia}}
+
+----
+==Latin==
+{{wikipedia|lang=la}}
+===Etymology===
+From Renaissance {{bor|la|grc|ἐγκυκλοπαιδεία|t=education in the circle of arts and sciences}}, a mistaken [[univerbation|univerbated]] form of {{m|grc|ἐγκύκλιος παιδείᾱ|t=education in the circle of arts and sciences}}, from {{m|grc|ἐγκύκλιος|t=circular}} + {{m|grc|παιδείᾱ|t=child-rearing, education}}. This spelling seems to have been first used by {{w|Paul Skalich}} in 1559, although the spelling ''encyclopedia'' goes back to at least 1517, with a work by {{w|Johannes Aventinus}}.
+===Pronunciation===
+* {{la-IPA|encyclopaedīa|eccl=1}}
+
+===Noun===
+{{la-noun|encyclopaedīa&lt;1&gt;}}
+
+# {{lb|la|New Latin}} [[encyclopedia]]
+
+====Declension====
+{{la-ndecl|encyclopaedīa&lt;1&gt;}}
+
+----
+
+==Scots==
+
+===Noun===
+{{sco-noun}}
+
+# [[encyclopedia]]</text>
+      <sha1>86q0p5tw7twa1hws0msovhbtpq5qg5x</sha1>
+    </revision>
+  </page>"""
+    expected = {
+        'title': 'encyclopaedia', 
+        'ipa': '/ənˌsəɪ.kləˈpi.di.ə/', 
+        'ms': '207591', 
+        'ipa-lang': 'en',
+        'pos': {'noun': ['encyclopedia']}
+    }
+    actual = parse_wiki_page(text) 
+    assert actual == expected  
