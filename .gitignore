@@ -1,6 +1,6 @@
 __pycache__/
 *.bz2
-*.txt
+*wiktionary*
 *.zip
 *.json
 .pytest_cache/
