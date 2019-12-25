@@ -1,4 +1,4 @@
-from common.util import get_char, get_if_char, read_until_chars, get_char_skip_chars, skip_char_til_chars \
+from common.util import get_if_char, read_until_chars, get_char_skip_chars, skip_char_til_chars \
     ,read_chars_til_char, Stream
 part_of_speech = [
     "noun", "verb", "adjective", "adverb", "determiner",
@@ -48,7 +48,7 @@ def distinct_list(seq): # Order preserving
   return [x for x in seq if x not in seen and not seen.add(x)]
 
 def parse_wikitext(text, template_name, template_param, ns):
-    stream = Stream(get_char(text))
+    stream = Stream(text)
     data = {}
     bol = True
     while True:

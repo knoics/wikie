@@ -1,20 +1,36 @@
-def get_char(string):
-    for c in string:
-        yield c
-
 class Stream():
-  def __init__(self, generator):
-    self.generator = generator
-    self.next_item = next(self.generator, None)
+  def __init__(self, items):
+    self.items = items
+    self.len = len(items)
+    self.index = 0
 
   def next(self):
-    next_item = self.next_item
-    self.next_item = next(self.generator, None)
-    return next_item
+    if self.index >= self.len:
+        return None
+    item = self.items[self.index]
+    self.index += 1
+    return item
 
   def peek(self):
-    return self.next_item
+    if self.index >= self.len:
+        return None
+    return self.items[self.index]
 
+  def read_line(self):
+    peek = self.index
+    while peek < self.len and self.items[peek] != '\n':
+        peek += 1
+    result = self.items[self.index:peek+1]
+    self.index = peek + 1
+    return result
+
+  def read_lines(self):
+    while True:
+        line = self.read_line()
+        if not line:
+            break
+        yield line
+    
 def read_chars_til_char(stream, chars):
     while True:
         if stream.peek() is None:

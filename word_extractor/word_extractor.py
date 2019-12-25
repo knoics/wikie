@@ -1,5 +1,6 @@
 import time
 from collections import defaultdict
+import json
 
 from word_extractor.wikie import pronunciation_to_numbers, get_wiktionary_pages, parse_words
 from xml_parser.simple_xml_parser import xml_to_dict
@@ -22,25 +23,29 @@ def extract_words(wiktionary_file, word_number_file):
             text_file.write("%s|%s|%s|%s\n" % (count, word, pronunciation, numbers))
     print('done!, took %s seconds.' % (time.time() - start_time))
 
-def convert_number_to_words(word_number_file):
+def convert_to_number(word_file):
     numbers = defaultdict(list)
-    with open(word_number_file, "r") as text_file:
+    with open(word_file, "r") as text_file:
         while True:
             line = text_file.readline()
             if not line:
                 break
-            items = line.split('|')
-            word = items[1]
-            number = items[3].strip()
+            d = json.loads(line)
+            word = d['title']
+            number = d['ms']
             if not number:
                 continue
             numbers[number].append(word)
     return numbers   
 
-def write_number_to_words(numbers, number_word_file):
-    with open(number_word_file, "w") as text_file:
+def write_number_to_file(numbers, number_file):
+    count = 0
+    with open(number_file, "w") as text_file:
         for number, words in numbers.items():
-            text_file.write("%s||%s\n" % (number, '|'.join(words))) 
+            d = {'ms': number, 'words': words}
+            text_file.write(json.dumps(d, ensure_ascii=False) + '\n')
+            count += 1
+    print('numbers written: ', count) 
     
 def filter_subset(wiktionary_file, filter, result_file, limits=None):
     filtered_count = 0
@@ -54,14 +59,17 @@ def filter_subset(wiktionary_file, filter, result_file, limits=None):
             if count % 10000 == 0:
                 print('scanned pages: ', count, filtered_count, int(filtered_count*100/count))
 
-#extract_words(r'./enwiktionary-latest-pages-articles.xml.bz2', r'./words.txt')
-# for count, word, pronunciation, numbers, image_file in parse_wiktionary_with_addinfo(r'./enwiktionary-latest-pages-articles.xml.bz2'):
-#     print(count, word, pronunciation, numbers, image_file)
-#     if count>=1:
-#         break
+def transform(wiktionary_file, map, result_file, limits=None):
+    with open(result_file, "w") as text_file:
+        for count, page in get_wiktionary_pages(wiktionary_file):
+            text_file.write(map(page))
+            if limits and count >= limits:
+                break
+            if count % 10000 == 0:
+                print('transformed pages: ', count)
 
-    
-#write_number_to_words(convert_number_to_words(r'./word_numbers.txt'), r'./number_words.txt')
+def transform_word_file_to_number_file(word_file, number_file):
+    write_number_to_file(convert_to_number(word_file), number_file)
 
 # with open(r'./number_words.txt', "r") as text_file:
 #     while True:

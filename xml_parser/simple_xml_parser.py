@@ -1,4 +1,4 @@
-from common.util import read_until_chars, get_char, Stream
+from common.util import read_until_chars, Stream
 
 def parse_xml_to_dict(stream):
     token = ''
@@ -40,5 +40,5 @@ def parse_xml_to_dict(stream):
     return data
 
 def xml_to_dict(xml):
-    stream = Stream(get_char(xml))
+    stream = Stream(xml)
     return parse_xml_to_dict(stream)
