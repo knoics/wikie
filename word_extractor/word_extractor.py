@@ -59,7 +59,7 @@ def filter_subset(wiktionary_file, filter, result_file, limits=None):
             if count % 10000 == 0:
                 print('scanned pages: ', count, filtered_count, int(filtered_count*100/count))
 
-def transform(wiktionary_file, map, result_file, limits=None):
+def transform(wiktionary_file, filter, map, result_file, limits=None):
     with open(result_file, "w") as text_file:
         for count, page in get_wiktionary_pages(wiktionary_file):
             text_file.write(map(page))
@@ -68,6 +68,22 @@ def transform(wiktionary_file, map, result_file, limits=None):
             if count % 10000 == 0:
                 print('transformed pages: ', count)
 
+def filter(source_file, filter, result_file, limits=0):
+    count = 1
+    filtered_count = 0
+    with open(result_file, "w") as text_file:
+        with open(source_file, "r") as src_file:
+            for line in src_file.readlines():
+                if filter(line):
+                    text_file.write(line)
+                else:
+                    filtered_count += 1
+                    print('filtered ', filtered_count, line)
+                if limits and count >= limits:
+                    break
+                if count % 10000 == 0:
+                    print('transformed pages: ', count)
+                count += 1
 def transform_word_file_to_number_file(word_file, number_file):
     write_number_to_file(convert_to_number(word_file), number_file)
 
