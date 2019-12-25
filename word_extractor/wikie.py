@@ -43,18 +43,25 @@ def parse_words(file_path):
 
 #title_re = re.compile('<title>(?P<title>.+)</title>')
 wikilink_re = re.compile('{{.+}}')
-title_ipa_pattern = re.compile('<title>(?P<title>.+)</title>.*?{{IPA\|(?P<lang>.{2,10}?)\|(?P<ipa>.*?)}}', re.DOTALL) #Adding a ? on a quantifier (?, * or +) makes it non-greedy.
+title_pattern = re.compile('<title>(?P<title>.+)</title>', re.DOTALL) 
+ipa_pattern_str = '{{IPA\|(?P<lang>.{2,10}?)\|(?P<ipa>.*?)}}' #Adding a ? on a quantifier (?, * or +) makes it non-greedy.
+us_ipa_pattern = re.compile('{{a\|US}}.*?' + ipa_pattern_str, re.DOTALL) 
+ipa_pattern = re.compile(ipa_pattern_str, re.DOTALL) 
 file_pattern = re.compile('\[\[File:(?P<file>.*?)\|', re.DOTALL)
 PART_OF_SPEECH = dict([('===%s===' % pos, pos) for pos in part_of_speech])
 def parse_wiki_page(page):
     data = {}
     pos = ''
-    m=title_ipa_pattern.search(page)
+    m=title_pattern.search(page)
     if m:
         data['title'] = m.group('title')
-        data['ipa'] = m.group('ipa')
-        data['ms'] = pronunciation_to_numbers(m.group('ipa').split('|')[0])
-        data['ipa-lang'] = m.group('lang')
+    for pattern in (us_ipa_pattern, ipa_pattern):
+        m=pattern.search(page)
+        if m:
+            data['ipa'] = m.group('ipa')
+            data['ipa-lang'] = m.group('lang')
+            data['ms'] = pronunciation_to_numbers(m.group('ipa').split('|')[0])
+            break
     m=file_pattern.search(page)
     if m:
         data['file'] = m.group('file')

@@ -936,3 +936,221 @@ def test_parse_free_page():
         'title': 'free'}
     actual = parse_wiki_page(text) 
     assert actual == expected
+
+def test_parse_four():
+    text = """
+<page>
+    <title>four</title>
+    <ns>0</ns>
+    <id>1695</id>
+    <revision>
+      <id>57867336</id>
+      <parentid>54337917</parentid>
+      <timestamp>2019-10-27T21:21:22Z</timestamp>
+      <contributor>
+        <username>Allahverdi Verdizade</username>
+        <id>2117864</id>
+      </contributor>
+      <comment>t+kum:[[дёрт]] t-balance ([[WT:EDIT|Assisted]])</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">==English==
+{{wikipedia}}
+{{number box|en|4}}
+
+===Etymology===
+From {{inh|en|enm|fower}}, from {{inh|en|ang|fēower}}, from {{inh|en|gem-pro|*fedwōr}}, from previous pre-[[w:Grimm's law|Grimm]] {{m|gem-pro|*petwṓr}}, from {{inh|en|ine-pro|*kʷetwṓr}}, the neuter form of {{m|ine-pro|*kʷetwóres}}. Cognate with {{cog|de|vier}}, {{cog|got|𐍆𐌹𐌳𐍅𐍉𐍂}}, {{cog|grc|τέσσαρες}}, {{cog|la|quattuor}} ({{cog|fr|quatre}}, {{cog|pt|quatro}}), {{cog|non|fjórir}} ({{cog|da|-}} and {{cog|no|fire}}), {{cog|ru|четы́ре}}, {{cog|sa|चतुर्|sc=Deva}}.
+
+===Pronunciation===
+* {{a|UK}}
+** {{a|RP}} {{enPR|fô}}, {{IPA|en|/fɔː/}}
+** {{a|Scotland}} {{IPA|en|/fo(ː)ɹ/}}
+* {{a|US}}
+** {{a|GenAm}} {{enPR|fôr}}, {{IPA|en|/fɔɹ/}}
+** {{a|rhotic|horse-hoarse}} {{enPR|fōr}}, {{IPA|en|/fo(ː)ɹ/}}
+** {{a|nonrhotic|horse-hoarse}} {{IPA|en|/foə/}}
+** {{audio|en|en-us-ne-four.ogg|Audio (US)}} {{qualifier|without ''horse''–''hoarse'' merger}}
+** {{audio|en|en-us-four.ogg|Audio (US)}} {{qualifier|with ''horse''–''hoarse'' merger}}
+* {{a|AU|NZ}} {{IPA|en|/foː/}}
+* {{audio|en|En-four.oga|Audio}}
+* {{audio|en|en-au-four.ogg|Audio (AU)}}
+* {{rhymes|en|əʊə(r)|ɔː(ɹ)}}
+* {{homophones|en|fore|for}} {{qualifier|accents with the [[w:horse–hoarse merger|''horse''–''hoarse'' merger]]}}
+
+===Numeral===
+{{head|en|numeral}}
+
+# {{cln|en|cardinal numbers}} A [[numerical]] [[value]] equal to [[4]]; the number after [[three]] and before [[five]]; [[two]] plus [[two]]. This many dots (••••)
+#: ''There are '''four''' seasons: winter, spring, summer and autumn.''
+#* {{RQ:Grey Riders|8}}
+#*: Venters began to count them—one—two—three—'''four'''—on up to sixteen.
+# {{n-g|Describing a [[set]] or [[group]] with four [[element]]s.}}
+
+
+====Related terms====
+* {{l|en|fourth}}
+
+====Translations====
+{{trans-top|the cardinal number 4}}
+* Aari: {{t|aiw|ʔoydí}}
+* Abaza: {{t|abq|пщба}}
+* Abkhaz: {{t|ab|ԥшьба|sc=Cyrl}}, {{t|ab|ҧшьба|sc=Cyrl}} {{qualifier|old spelling}}
+
+
+====See also====
+* {{l|en|Appendix:Cardinal_numbers_0_to_9|Table of cardinal numbers 0 to 9 in various languages}}
+* Last: [[three]], 3
+* Next: [[five]], 5
+
+===Noun===
+{{en-noun|~}}
+
+# {{lb|en|countable}} The [[digit]] or [[figure]] 4; an occurrence thereof.
+# {{lb|en|countable}} Anything measuring four [[unit]]s, as [[length]].
+#: ''Do you have any more '''fours'''? I want to make this a little taller.''
+# A person who is four [[year]]s old.
+#: ''I'll take the threes, '''fours''' and fives and go to the playground.''
+# {{lb|en|cricket|countable}} An [[event]] in which the batsmen run four times between the wickets or, more often, a [[batsman]] hits a ball which bounces on the ground before passing over a [[boundary]], resulting in an award of 4 [[run]]s for the batting team. If the ball does not bounce before passing over the boundary, a [[six]] is awarded instead.
+# {{lb|en|basketball|countable}} A [[power forward]].
+# {{lb|en|rowing}} Four-man [[sweep]] racing shell, with or without a [[coxswain]].
+## The shell itself.
+##: {{ux|en|The team bought a new '''four''' last season.}}
+## The [[crew]] rowing in a four boat.
+##: {{ux|en|Our '''four''' won both races.}}
+## {{lb|en|colloquial}} A [[regatta]] event for four boats.
+##: {{ux|en|We got third place in the varsity '''four'''.}}
+# {{lb|en|obsolete}} A four-[[pennyworth]] of spirits.
+#* '''1887''', Sir Arthur Conan Doyle, ''A Study in Scarlet'', IV:
+#*: I was a-strollin' down, thinkin' between ourselves how uncommon handy a '''four''' of gin hot would be, when suddenly the glint of a light caught my eye in the window of that same house.
+
+====Derived terms====
+* {{sense|numeral}} {{l|en|rouf}} {{qualifier|back slang}}
+
+====Translations====
+{{trans-top|the digit or figure 4}}
+* Armenian: {{t+|hy|չորս}}
+* Asturian: {{t+|ast|cuatro|m}}
+* Basque: {{t+|eu|lau}}
+* Belarusian: {{t|be|чацвёрка|f|sc=Cyrl}}
+* Swedish: {{t+|sv|fyra|c}}
+{{trans-bottom}}
+
+{{trans-top|in cricket}}
+{{trans-mid}}
+{{trans-bottom}}
+
+{{trans-top|in rowing}}
+* Bulgarian: {{t+|bg|четворка|f|sc=Cyrl}}
+{{trans-mid}}
+* German: {{t|de|Doppelvierer|m}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* Hebrew: {{t+check|he|ארבע|f|tr=arbá|sc=Hebr}}
+* Romanian: {{t+check|ro|patru|m}}
+{{trans-mid}}
+* Ukrainian: {{t+check|uk|четві́рка|f}}
+* Welsh: {{t+check|cy|pedwar|m}}
+{{trans-bottom}}
+
+====See also====
+{{lookfrom|four}}
+{{table:playing cards/en}}
+
+{{rel-top|Symbols of number four in various numeral systems}}
+* {{w|Arabic numerals}}: 4
+* {{w|Chinese numerals}}: 肆, 四
+* {{w|Greek numerals}}: {{qualifier|uppercase}} Δ΄, {{qualifier|lowercase}} δ΄
+* {{w|Roman numerals}}: IV or IIII
+{{rel-bottom}}
+
+===Anagrams===
+* {{anagrams|en|a=foru|furo|rouf|uORF}}
+
+[[Category:English basic words]]
+[[Category:en:Four]]
+
+----
+
+==French==
+
+===Etymology===
+From {{inh|fr|fro|forn}}, from {{inh|fr|la|furnus}}, from {{inh|fr|itc-pro|*fornos}}, from {{inh|fr|ine-pro|*gʷʰr̥-nós}}, from {{m|ine-pro|*gʷʰer-||warm, hot}}.
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{audio|fr|Fr-four.ogg|audio}}
+* {{rhymes|fr|uʁ}}
+
+===Noun===
+{{fr-noun|m}}
+
+# [[oven]]
+# [[stove]]
+# [[flop]]
+
+====Derived terms====
+* {{l|fr|au four}}
+* {{l|fr|enfourner}}
+* {{l|fr|four à micro-ondes}}
+* {{l|fr|gant de four}}
+* {{l|fr|petit four}}
+
+====Related terms====
+* {{l|fr|fournaise}}
+* {{l|fr|fourneau}}
+
+===Further reading===
+* {{R:TLFi}}
+
+----
+
+==Istriot==
+
+===Etymology===
+From {{inh|ist|la|foris}}, {{m|la|foras}}. Compare {{cog|it|fuori}}, {{cog|fur|fûr}}, {{cog|dlm|fure}}, {{cog|vec|fora}}.
+
+===Adverb===
+{{head|ist|adverb}}
+
+# [[out]], [[outside]]
+
+===Preposition===
+{{head|ist|preposition}}
+
+# [[out]], [[outside]]
+
+----
+
+==Norman==
+
+===Alternative forms===
+* {{l|nrf|fou}} {{qualifier|Jersey}}
+
+===Etymology===
+From {{inh|nrf|fro|forn}}, from {{inh|nrf|la|furnus}}.
+
+===Noun===
+{{nrf-noun|m}}
+
+# {{lb|nrf|Guernsey}} [[oven]]
+
+{{topics|nrf|Cooking}}</text>
+      <sha1>7e24hc00da33l36jmc30hfkzrhqbzps</sha1>
+    </revision>
+  </page>"""
+  
+    expected = {
+        'title': 'four', 
+        'ipa': '/fɔɹ/', 
+        'ms': '84', 
+        'ipa-lang': 'en', 
+        'pos': {
+            'numeral': ['A numerical value equal to 4; the number after three and before five; two plus two. This many dots (••••)'], 
+            'noun': ['The digit or figure 4; an occurrence thereof.', 'Anything measuring four units, as length.', 'A person who is four years old.', 'An event in which the batsmen run four times between the wickets or, more often, a batsman hits a ball which bounces on the ground before passing over a boundary, resulting in an award of 4 runs for the batting team. If the ball does not bounce before passing over the boundary, a six is awarded instead.', 'A power forward.', 'Four-man sweep racing shell, with or without a coxswain.', 'A four-pennyworth of spirits.', 'oven', 'stove', 'flop'], 
+            'adverb': ['out, outside'], 
+            'preposition': ['out, outside']
+        }
+    }
+    actual = parse_wiki_page(text) 
+    assert actual == expected
